@@ -1,6 +1,8 @@
 
 
+
 <?php
+    header('Content-Type: application/json');
 
     // $array = (array) ["Marcelo", "Walter", "Juan", "Profesores"];
     // $array1 = (array) ["perrito", "vaca", "oso", "pato"];
@@ -68,77 +70,116 @@
     //Las keys y el segundo los datos relacionados a la key
     // $res = array_combine($array , $array1);
 
-    header('Content-Type: application/json');
-    $array = (array) [
-        array(
-            "CC" => 123456789,
-            "Nombre" => "Miguel Angel",
-            "Edad" => 23,
-            "Estado_civil" => false,
-            "Salud" => array(
-                "NIT" => 123,
-                "Nombre" => "Coosalud"
-            ),
-        ),
-        array(
-            "CC" => 8686,
-            "Nombre" => "Thomas Perez",
-            "Edad" => 15,
-            "Estado_civil" => true,
-            "Salud" => array(
-                "NIT" => 456,
-                "Nombre" => "Cafesalud"
-            ),
+    
+    // $array = (array) [
+    //     array(
+    //         "CC" => 123456789,
+    //         "Nombre" => "Miguel Angel",
+    //         "Edad" => 23,
+    //         "Estado_civil" => false,
+    //         "Salud" => array(
+    //             "Nombre" => "Coosalud",
+    //             "NIT" => 123,
+    //         ),
+    //     ),
+    //     array(
+    //         "CC" => 8686,
+    //         "Nombre" => "Thomas Perez",
+    //         "Edad" => 15,
+    //         "Estado_civil" => true,
+    //         "Salud" => array(
+    //             "Nombre" => "Cafesalud",
+    //             "NIT" => 456,
+    //         ),
             
-        ),
-        array(
-            "CC" => 4868486,
-            "Nombre" => "Juan Carlos",
-            "Edad" => 25,
-            "Estado_civil" => true,
-            "Salud" => array(
-                "NIT" => 798,
-                "Nombre" => "Sanitas"
-            ),
-        ),
-        array(
-            "CC" => 86486,
-            "Nombre" => "Claudia Milena",
-            "Edad" => 20,
-            "Estado_civil" => false,
-            "Salud" => array(
-                "NIT" => 753,
-                "Nombre" => "EPS"
-            ),
-        ),
-        array(
-            "CC" => 486486745,
-            "Nombre" => "Marcelo Gomez",
-            "Edad" => 20,
-            "Estado_civil" => false,
-            "Salud" => array(
-                "NIT" => 159,
-                "Nombre" => "Comeva"
-            ),
-        ),
-    ];
-
-    $nit = array_column(
-                array_column(
-                    $array, "Salud"
-                ),
-            "NIT"
-        );
-    foreach ($array as $key => $value) {
-        unset($array[$key]["Salud"]);
-    }
-    $res = array_combine($nit, $array);
+    //     ),
+    //     array(
+    //         "CC" => 4868486,
+    //         "Nombre" => "Juan Carlos",
+    //         "Edad" => 25,
+    //         "Estado_civil" => true,
+    //         "Salud" => array(
+    //             "Nombre" => "Sanitas",
+    //             "NIT" => 798,
+    //         ),
+    //     ),
+    //     array(
+    //         "CC" => 86486,
+    //         "Nombre" => "Claudia Milena",
+    //         "Edad" => 20,
+    //         "Estado_civil" => false,
+    //         "Salud" => array(
+    //             "Nombre" => "EPS",
+    //             "NIT" => 753,
+    //         ),
+    //     ),
+    //     array(
+    //         "CC" => 486486745,
+    //         "Nombre" => "Marcelo Gomez",
+    //         "Edad" => 20,
+    //         "Estado_civil" => false,
+    //         "Salud" => array(
+    //             "Nombre" => "Comeva",
+    //             "NIT" => 159,
+    //         ),
+    //     ),
+    // ];
+    // $nit = array_column(
+    //             array_column(
+    //                 $array, "Salud"
+    //             ),
+    //         "NIT"
+    //     );
+    // foreach ($array as $key => $value) {
+    //     foreach ($array[$key]["Salud"] as $key2 => $value2) {
+    //         if($key2=="Nombre"){
+    //             $array[$key]["NombreEps"] =  $value2;
+    //             break;
+    //             // goto parra_salud;
+    //         }
+    //     }
+    //     // parra_salud:
+    //     unset($array[$key]["Salud"]);
+    // }
+    // $res = array_combine($nit, $array);
     
+    //Convierte los datos de una lista enumerada en variables
+    //individuales 
+    // $array = array("Nike", "Violeta", 2500);
+
+    // list($zapasto,$color,$precio) = $array;
+    // print_r($color);
     
 
 
-    print_r($array);
-    // echo "<br><br><br><br>";
-    print_r($res);
+    
+    //El nombre de la variable la asigana a un array asociativo con su valor
+    //dado en la variable mensionada
+
+    // $profesor = (string) "Miguel";
+    // $universidad = (string) "Comfenalco";
+    // $permiso = (bool) false ;
+    // $alumnos = (array) ["Willian","Juan"]; 
+
+    // $res = compact('universidad','profesor','permiso','alumnos');
+
+    $Nombre = "Juan";
+    $array = (array) ["Nombre" => "Miguel","Apellido" => "Castro"];
+
+    extract($array, EXTR_PREFIX_SAME, "data");
+
+    print_r($data_Nombre);
+    echo "\n";
+    print_r($Apellido);
+
+
+
+
+
+
+
+
+    // print_r($array);
+    // print_r($res);
 
 ?>
