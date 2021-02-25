@@ -43,27 +43,27 @@
     //Organiza la lista (Organiza 2 o mas tipos de variables)
     $res = sort($array, SORT_NATURAL | SORT_FLAG_CASE );
 
-   //Buscamos los indices de los datos con el metodo y segun los parametros
+    //Buscamos los indices de los datos con el metodo y segun los parametros
     //el nombre del valor de lista si el datos es identico operador compracion (===) (true,false)
     //Como resultado son los indices en un lista array
-    // $res = array_keys($array, "Marcelo", true);
+    $res = array_keys($array, "Marcelo", true);
 
     //Buscamos los indices de los datos con el metodo y segun los parametros
     //el nombre del valor de lista si el datos es identico operador compracion (===) (true,false)
     //Como resultado es el indicice encontrado
-    // $res = array_search("Miguel", $array["Profesores"], true);
+    $res = array_search("Miguel", $array["Profesores"], true);
 
     // Crear y rellenar un array con un dato especifico ("Curso_PHP")
-    // $res = (array) array_fill(0,5,"Curso_PHP");
+    $res = (array) array_fill(0,5,"Curso_PHP");
     
     // Crear y rellenar un array siempre y cuando el array al utilizar sea menor
     //A los campos a rellenar con un dato especifico ("Curso_PHP")
-    // $res =  array_pad($array,count($array)+5,"Curso_PHP");
+    $res =  array_pad($array,count($array)+5,"Curso_PHP");
  
 
     //Combina dos array para crea un array asociativo siendo el primer parametro
     //Las keys y el segundo los datos relacionados a la key
-    // $res = array_combine($array , $array1);
+    $res = array_combine($array , $array1);
 
     header('Content-Type: application/json');
     $array = (array) [
@@ -130,8 +130,37 @@
         unset($array[$key]["Salud"]);
     }
     $res = array_combine($nit, $array);
+   
+
+    //Convierte los datos de una lista enumerada en variables
+    //individuales 
+    $array = array("Nike", "Violeta", 2500);
+
+    // list($zapasto,$color,$precio) = $array;
+    print_r($color);
     
+
+
     
+    //El nombre de la variable la asigana a un array asociativo con su valor
+    //dado en la variable mensionada
+
+    $profesor = (string) "Miguel";
+    $universidad = (string) "Comfenalco";
+    $permiso = (bool) false ;
+    $alumnos = (array) ["Willian","Juan"]; 
+
+    $res = compact('universidad','profesor','permiso','alumnos');
+
+    $Nombre = "Juan";
+    $array = (array) ["Nombre" => "Miguel","Apellido" => "Castro"];
+
+    extract($array, EXTR_PREFIX_SAME, "data");
+
+    print_r($data_Nombre);
+    echo "\n";
+    print_r($Apellido);
+
 
     print_r($array);
     echo "<br>";
